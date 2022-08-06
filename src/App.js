@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import AnswerList from "./components/AnswerList";
 import defaultDataset from "./dataset"
+import Chats from "./components/Chats";
 
 function App() {
-  const [data, setData] = useState(defaultDataset)
-  const [init, setInit] = useState(defaultDataset.init)
+  const [initData, setInitData] = useState(defaultDataset.init)
+  const [currentTopic, setCurrentTopic] = useState({
+    topic:defaultDataset.init,
+    topicType:"question"
+  })
 
   return (
     <main>
       <div className="container">
-        <AnswerList answer={init.answers}/>
+        <Chats topic={currentTopic.topic} topicType={currentTopic.topicType}/>
+        <AnswerList answer={initData.answers}/>
       </div>
     </main>
   );

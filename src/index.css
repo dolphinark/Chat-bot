@@ -13,16 +13,47 @@ main{
 }
 
 .container{
-  width: 300px;
+  width: 350px;
   height: 500px;
   border: 1px solid gray;
   border-radius: 4px;
+  padding:10px;
 }
 
 .answer-list{
-  height: 100%;
+  height: 430px;
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  gap: 5px;
+}
+
+.answer{
+  width: 100%;
+}
+
+.chat-bubble{
+  background: #41B6E6;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: .5rem;
+  margin-inline: 1rem;
+  max-width: 80%;
+  width: auto;
+}
+
+.row{
+  display: flex;
+  padding-left: 0 !important;
+}
+
+.row-reverse{
+  display: flex;
+  flex-direction: row-reverse;
+  /* justify-content: flex-end; */
+  padding-right: 0 !important;
 }

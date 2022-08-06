@@ -5,7 +5,7 @@ function AnswerList({ answer }) {
   return (
     <div className="answer-list">
       {answer.map((answer, index) => (
-        <Answer answer={answer.content} key={index}/>
+        <Answer answer={answer.content} key={index.toString()}/>
       ))}
     </div>
   );

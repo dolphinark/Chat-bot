@@ -4,9 +4,7 @@ import Button from '@mui/material/Button';
 
 function Answer({answer}) {
   return (
-    <div className="answer">
-      <Button variant="contained">{answer}</Button>
-    </div>
+      <Button variant="contained" className="answer">{answer}</Button>
   );
 }
 
