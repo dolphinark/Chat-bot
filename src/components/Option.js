@@ -1,18 +1,18 @@
 import React from "react";
 import Button from "@mui/material/Button";
 
-function Answer({ answer, selectAnswer, index }) {
+function Option({ option, selectOption, index }) {
   return (
     <Button
       variant="contained"
       className="answer"
       onClick={() => {
-        selectAnswer(index);
+        selectOption(index);
       }}
     >
-      {answer}
+      {option}
     </Button>
   );
 }
 
-export default Answer;
+export default Option;

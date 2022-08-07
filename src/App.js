@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AnswerList from "./components/AnswerList";
+import OptionList from "./components/OptionList";
 import defaultDataset from "./dataset";
 import Chats from "./components/Chats";
 import { display } from "@mui/system";
@@ -11,18 +11,24 @@ function App() {
     topicType: "question",
   });
   const [chats, setChats] = useState(initData);
+  const [selectedAnswer, setSelectedAnswer] = useState("")
 
-  function selectAnswer(index) {
+
+  function selectOption(index) {
     addChats();
     console.log("選項", initData.answers[index].nextId);
+
+
   }
 
   function addChats(index) {
     const chat = {};
-    //
-    setChats((prevChats) => {         //保存原本的加顯示下一輪的問題跟選項
-      return { ...prevChats, chat };
-    });
+    
+    //顯示選擇項目
+    //顯示該項目的物件(新問題跟選擇)
+    // setChats((prevChats) => {         保存原本的加顯示下一輪的問題跟選項
+    //   return { ...prevChats, chat };
+    // });
    
   }
 
@@ -30,7 +36,7 @@ function App() {
     <main>
       <div className="container">
         <Chats topic={currentTopic.topic} topicType={currentTopic.topicType} />
-        <AnswerList answer={initData.answers} selectAnswer={selectAnswer} />
+        <OptionList options={initData.answers} selectOption={selectOption}/>
       </div>
     </main>
   );
