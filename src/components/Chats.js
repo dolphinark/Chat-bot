@@ -6,8 +6,6 @@ function Chats({topic,topicType}) {
   return (
     <List>
       <Chat topic={topic} topicType={topicType}/>
-      <Chat />
-      <Chat />
     </List>
   );
 }

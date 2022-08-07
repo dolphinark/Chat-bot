@@ -18,7 +18,7 @@ function Chat({ topic, topicType }) {
       ) : (
         <Avatar alt="icon" src={UserSrc} />
       )}
-      <div className="chat-bubble">say sth</div>
+      <div className="chat-bubble">{topic}</div>
     </ListItem>
   );
 }

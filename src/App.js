@@ -6,7 +6,7 @@ import Chats from "./components/Chats";
 function App() {
   const [initData, setInitData] = useState(defaultDataset.init)
   const [currentTopic, setCurrentTopic] = useState({
-    topic:defaultDataset.init,
+    topic:defaultDataset.init.question,
     topicType:"question"
   })
 
