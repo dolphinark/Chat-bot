@@ -5,8 +5,8 @@ import Avatar from "@mui/material/Avatar";
 // import BotAvatar from "../../images/bot.jpg"
 // import User from "../../public/images/user.png"
 
-function Chat({ topic, topicType, answer }) {
-  const isQuestion = topicType === "question";
+function Chat({ text, type, answer }) {
+  const isQuestion = type === "question";
   const isBot = isQuestion ? "row" : "row-reverse";
   const BotAvatarSrc = "../../images/bot.jpg";
   const UserSrc = "../../public/images/user.png";
@@ -21,7 +21,7 @@ function Chat({ topic, topicType, answer }) {
       ) : (
         <Avatar alt="icon" src={UserSrc} />
       )}
-      <div className="chat-bubble">{topic}{answer}</div>
+      <div className="chat-bubble">{text}{answer}</div>
 
     </ListItem>
   );

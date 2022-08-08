@@ -2,11 +2,17 @@ import React from "react";
 import Chat from "./Chat";
 import List from "@mui/material/List";
 
-function Chats({topic,topicType,answer}) {
+function Chats({ text, type, answer, chats }) {
   return (
     <List>
-      <Chat topic={topic} topicType={topicType}/>
+      <Chat text={text} type={type}/>
       {answer?<Chat answer={answer}/>:""}
+      {/* {chats.map((chat, index) => (
+        <div>
+          <Chat text={text} type={type} />
+          {answer ? <Chat answer={answer} /> : ""}
+        </div>
+      ))} */}
     </List>
   );
 }
