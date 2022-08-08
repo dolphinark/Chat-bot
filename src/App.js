@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import OptionList from "./components/OptionList";
 import defaultDataset from "./dataset";
 import Chats from "./components/Chats";
@@ -6,37 +6,67 @@ import { display } from "@mui/system";
 
 function App() {
   const [initData, setInitData] = useState(defaultDataset.init);
+  const [currentId, setCurrentId] = useState("init");
   const [currentTopic, setCurrentTopic] = useState({
-    topic: defaultDataset.init.question,
+    topic: defaultDataset[currentId].question,
     topicType: "question",
   });
-  const [chats, setChats] = useState(initData);
-  const [selectedAnswer, setSelectedAnswer] = useState("")
+  const [options, setOptions] = useState(initData.answers);
+  const [answer, setAnswer] = useState({}); //上方使用者回答的部分
+  const [dfault, setDfault] = useState(defaultDataset);
+
+  function selectOption(nextId, selectedOption) {
+    //傳入的index是錯誤的 下一輪就還是同樣的內容
+
+    //保存問題
+    //使用者顯示選擇的option
+    //Bot顯示選擇的option的問題
+    //顯示選擇的option的新一輪option
+
+    // addChats();
+    console.log("nextId", nextId);   //正確的nextId
 
 
-  function selectOption(index) {
-    addChats();
-    console.log("選項", initData.answers[index].nextId);
+    setAnswer({
+      text: selectedOption,
+      topicType: "answer",
+    });
+
+    setOptions(defaultDataset[nextId].answers);
 
 
+    //等等再處理
+    displayNextChat(nextId);
+  }
+
+  function displayNextChat(nextTopic) {
+    // setCurrentTopic((prevTopic) => {
+    //   return {
+    //     topic: defaultDataset.nextTopic,
+    //     ...prevTopic
+    //   };
+    // });
+   
   }
 
   function addChats(index) {
-    const chat = {};
-    
-    //顯示選擇項目
-    //顯示該項目的物件(新問題跟選擇)
-    // setChats((prevChats) => {         保存原本的加顯示下一輪的問題跟選項
-    //   return { ...prevChats, chat };
-    // });
-   
+    // const chat = {};
+    // currentTopic+selectedAns
   }
 
   return (
     <main>
       <div className="container">
-        <Chats topic={currentTopic.topic} topicType={currentTopic.topicType} />
-        <OptionList options={initData.answers} selectOption={selectOption}/>
+        <Chats
+          topic={currentTopic.topic}
+          topicType={currentTopic.topicType}
+          answer={answer.text}
+        />
+        <OptionList
+          options={options}
+          selectOption={selectOption}
+          nextId={defaultDataset[currentId].answers}
+        />
       </div>
     </main>
   );

@@ -1,16 +1,16 @@
 import React from "react";
 import Button from "@mui/material/Button";
 
-function Option({ option, selectOption, index }) {
+function Option({selectedOption, selectOption, nextId }) {
   return (
     <Button
       variant="contained"
       className="answer"
       onClick={() => {
-        selectOption(index);
+        selectOption(nextId, selectedOption);
       }}
     >
-      {option}
+      {selectedOption}
     </Button>
   );
 }
