@@ -1,17 +1,21 @@
 import React from "react";
 import Button from "@mui/material/Button";
+import { StyledEngineProvider } from "@mui/material/styles";
 
-function Option({selectedOption, selectOption, nextId }) {
+function Option({ selectedOption, selectOption, nextId }) {
   return (
-    <Button
-      variant="contained"
-      className="answer"
-      onClick={() => {
-        selectOption(nextId, selectedOption);
-      }}
-    >
-      {selectedOption}
-    </Button>
+    <StyledEngineProvider injectFirst>
+      <Button
+        hover
+        variant="contained"
+        className="answer"
+        onClick={() => {
+          selectOption(nextId, selectedOption);
+        }}
+      >
+        {selectedOption}
+      </Button>
+    </StyledEngineProvider>
   );
 }
 

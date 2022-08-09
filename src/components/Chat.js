@@ -6,7 +6,7 @@ function Chat({ chats, text, type }) {
   const isQuestion = type === "question";
   const isBot = isQuestion ? "row" : "row-reverse";
   const BotAvatarSrc = "../../images/bot.jpg";
-  const UserSrc = "../../public/images/user.png";
+  const UserSrc = "../../images/user.png";
  
   return (
     <ListItem className={isBot}>

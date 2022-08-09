@@ -1,29 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import OptionList from "./components/OptionList";
 import defaultDataset from "./dataset";
 import Chats from "./components/Chats";
-import { display } from "@mui/system";
+// import { display } from "@mui/system";
 
 function App() {
-  const [initData, setInitData] = useState(defaultDataset.init);
-  const [currentId, setCurrentId] = useState("init");
+  const initData = defaultDataset.init;
+  const currentId = "init";
   const [options, setOptions] = useState(initData.answers);
-  const [answer, setAnswer] = useState({}); //上方使用者回答的部分
   const [chats, setChats] = useState([
     { text: defaultDataset[currentId].question, type: "question" },
   ]);
 
-  
   function selectOption(nextId, selectedOption) {
-
     addChats({
       text: selectedOption,
       type: "answer",
     });
- 
+
     setOptions(defaultDataset[nextId].answers);
 
-    displayNextQuestion(nextId,defaultDataset[nextId])
+    displayNextQuestion(nextId, defaultDataset[nextId]);
   }
 
   function addChats(chat) {
@@ -33,13 +30,11 @@ function App() {
   }
 
   function displayNextQuestion(nextId, nextDataset) {
-  
     addChats({
       text: nextDataset.question,
       type: "question",
     });
   }
-
 
   return (
     <main>

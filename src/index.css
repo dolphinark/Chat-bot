@@ -10,6 +10,7 @@ main{
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgb(50, 48, 48);
 }
 
 .container{
@@ -18,16 +19,20 @@ main{
   border: 1px solid gray;
   border-radius: 4px;
   padding:10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: whitesmoke;
 }
 
 .answer-list{
-  height: 430px;
-  /* height: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  margin-inline: auto;
   gap: 5px;
+  width: 100%;
 }
 
 .answer{
@@ -54,6 +59,22 @@ main{
 .row-reverse{
   display: flex;
   flex-direction: row-reverse;
-  /* justify-content: flex-end; */
   padding-right: 0 !important;
+}
+
+.css-sghohy-MuiButtonBase-root-MuiButton-root{  /*Button*/
+  border-color: orange;
+  color: orange;
+  font-weight: 600;
+  background-color: #fff;
+  outline: 1px solid #FFB549;
+}
+
+.css-sghohy-MuiButtonBase-root-MuiButton-root:hover{
+  background-color: orange;
+  color: #fff;
+}
+
+.css-h4y409-MuiList-root{ /*Chats*/
+  overflow: auto;
 }
