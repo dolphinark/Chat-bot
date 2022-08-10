@@ -6,7 +6,7 @@ import { StyledEngineProvider } from "@mui/material/styles";
 function Chats({ chats }) {
   return (
     <StyledEngineProvider injectFirst>
-      <List>
+      <List id="scroll-area">
         {chats.map((chat, index) => (
           <Chat text={chats[index].text} type={chats[index].type} key={index} />
         ))}

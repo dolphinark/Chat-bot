@@ -62,7 +62,8 @@ main{
   padding-right: 0 !important;
 }
 
-.css-sghohy-MuiButtonBase-root-MuiButton-root{  /*Button*/
+ /*Button*/
+.css-sghohy-MuiButtonBase-root-MuiButton-root{ 
   border-color: orange;
   color: orange;
   font-weight: 600;
@@ -75,6 +76,7 @@ main{
   color: #fff;
 }
 
-.css-h4y409-MuiList-root{ /*Chats*/
+/*Chats*/
+.css-h4y409-MuiList-root{ 
   overflow: auto;
 }

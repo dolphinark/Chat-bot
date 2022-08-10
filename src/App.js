@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import OptionList from "./components/OptionList";
 import defaultDataset from "./dataset";
 import Chats from "./components/Chats";
@@ -35,6 +35,13 @@ function App() {
       type: "question",
     });
   }
+
+  useEffect(() => {
+    const scrollArea = document.getElementById("scroll-area");
+    if (scrollArea) {
+      scrollArea.scrollTop = scrollArea.scrollHeight;
+    }
+  });
 
   return (
     <main>
