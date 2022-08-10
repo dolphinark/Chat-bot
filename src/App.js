@@ -20,7 +20,7 @@ function App() {
 
     setOptions(defaultDataset[nextId].answers);
 
-    displayNextQuestion(nextId, defaultDataset[nextId]);
+    setTimeout(() => displayNextQuestion(nextId, defaultDataset[nextId]), 750);
   }
 
   function addChats(chat) {
