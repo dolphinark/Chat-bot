@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import OptionList from "./components/OptionList";
 import defaultDataset from "./dataset";
 import Chats from "./components/Chats";
+import { create } from "@mui/material/styles/createTransitions";
 // import { display } from "@mui/system";
 
 function App() {
@@ -13,14 +14,27 @@ function App() {
   ]);
 
   function selectOption(nextId, selectedOption) {
-    addChats({
-      text: selectedOption,
-      type: "answer",
-    });
+    switch (true) {
+      case /^https:*/.test(nextId):
+        const a = document.createElement("a");
+        a.href = nextId;
+        a.target = "_blank";
+        a.rel = "noreferrer noopenner"; //for safety
+        a.click();
+        break;
 
-    setOptions(defaultDataset[nextId].answers);
+      default:
+        addChats({
+          text: selectedOption,
+          type: "answer",
+        });
 
-    setTimeout(() => displayNextQuestion(nextId, defaultDataset[nextId]), 750);
+        setOptions(defaultDataset[nextId].answers);
+        setTimeout(
+          () => displayNextQuestion(nextId, defaultDataset[nextId]),
+          750
+        );
+    }
   }
 
   function addChats(chat) {
