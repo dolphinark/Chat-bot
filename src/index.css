@@ -80,3 +80,14 @@ main{
 .css-h4y409-MuiList-root{ 
   overflow: auto;
 }
+
+/* Inquiry Form */
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper{
+  height: 400px;
+  width: 500px;
+}
+
+/* Inquiry Form Title */
+.css-bdhsul-MuiTypography-root-MuiDialogTitle-root{
+  color: rgb(69, 69, 69);
+}

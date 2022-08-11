@@ -6,7 +6,6 @@ function Option({ selectedOption, selectOption, nextId }) {
   return (
     <StyledEngineProvider injectFirst>
       <Button
-        hover
         variant="contained"
         className="answer"
         onClick={() => {

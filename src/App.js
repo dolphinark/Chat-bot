@@ -2,8 +2,15 @@ import React, { useEffect, useState } from "react";
 import OptionList from "./components/OptionList";
 import defaultDataset from "./dataset";
 import Chats from "./components/Chats";
-import { create } from "@mui/material/styles/createTransitions";
+import FormDialog from "./components/Form/FormDialog";
+// import { create } from "@mui/material/styles/createTransitions";
 // import { display } from "@mui/system";
+// import Button from "@mui/material/Button";
+// import Dialog from "@mui/material/Dialog";
+// import DialogActions from "@mui/material/DialogActions";
+// import DialogContent from "@mui/material/DialogContent";
+// import DialogContentText from "@mui/material/DialogContentText";
+// import DialogTitle from "@mui/material/DialogTitle";
 
 function App() {
   const initData = defaultDataset.init;
@@ -12,6 +19,7 @@ function App() {
   const [chats, setChats] = useState([
     { text: defaultDataset[currentId].question, type: "question" },
   ]);
+  const [openInquiry, setOpenInquiry] = React.useState(false);
 
   function selectOption(nextId, selectedOption) {
     switch (true) {
@@ -21,6 +29,10 @@ function App() {
         a.target = "_blank";
         a.rel = "noreferrer noopenner"; //for safety
         a.click();
+        break;
+
+      case nextId === "contact":
+        handleClickOpenInquiry();
         break;
 
       default:
@@ -57,15 +69,27 @@ function App() {
     }
   });
 
+  const handleClickOpenInquiry = () => {
+    setOpenInquiry(true);
+  };
+
+  const handleCloseInquiry = () => {
+    setOpenInquiry(false);
+  };
+
   return (
     <main>
       <div className="container">
         <Chats chats={chats} />
-        {console.log("chats", chats)}
         <OptionList
           options={options}
           selectOption={selectOption}
           nextId={defaultDataset[currentId].answers}
+        />
+        <FormDialog
+          openInquiry={openInquiry}
+          handleClickOpenInquiry={handleClickOpenInquiry}
+          handleCloseInquiry={handleCloseInquiry}
         />
       </div>
     </main>
