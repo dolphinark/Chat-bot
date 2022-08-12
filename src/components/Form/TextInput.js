@@ -12,6 +12,9 @@ function TextInput(props) {
         multiline
         fullWidth
         margin="dense"
+        value={props.value}
+        onChange={props.onChange}
+        // ref={props.ref}
       />
     </div>
   );
