@@ -3,6 +3,7 @@ import * as admin from "firebase-admin";
 admin.initializeApp();
 const db = admin.firestore();
 
+
 const sendResponse = (response: functions.Response, statusCode: number, body: any) => {
     response.send({
         statusCode,
